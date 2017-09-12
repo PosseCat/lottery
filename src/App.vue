@@ -18,13 +18,13 @@
             </li>
         </ul>
         <div class="btn-group pull-right bw-r">
-          <button type="button" class="btn btn-default">抽奖报名</button>
+          <button type="button" class="btn btn-default" @click="showCanvas">抽奖报名</button>
           <button type="button" class="btn btn-default">参与名单</button>
           <button type="button" class="btn btn-default">设置</button>
       </div>
     </nav>
     <!-- 彩蛋效果 -->
-    <canvas-box></canvas-box>
+    <canvas-box :canvasSwitch="canvasSwitch"></canvas-box>
     <router-view></router-view>
   </div>
 </template>
@@ -34,6 +34,16 @@ import CanvasBox from '@/components/CanvasBox'
 import Home from '@/components/Home'
 export default {
   name: 'app',
+  data () {
+    return {
+      canvasSwitch: false
+    }
+  },
+  methods: {
+    showCanvas () {
+      this.canvasSwitch = !this.canvasSwitch
+    }
+  },
   components:{
     CanvasBox,
     Home
